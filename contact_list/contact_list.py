@@ -1,19 +1,23 @@
 """The module defines the ContactList class."""
 
-__author__ = "ACE Faculty"
+__author__ = "Sania Parvej"
 __version__ = "1.0.0"
 __credits__ = ""
 
-from PySide6.QtWidgets import  QMainWindow, QLineEdit, QPushButton, QTableWidget, QLabel, QVBoxLayout, QWidget, QTableWidgetItem
+from PySide6.QtWidgets import  QMainWindow, QLineEdit, QPushButton, QTableWidget, QLabel, QVBoxLayout, QWidget, QTableWidgetItem, QMessageBox
+from PySide6.QtCore import Slot    #Added import for Slot decorator
 
 class ContactList(QMainWindow):
     """Represents a window that provides the UI to manage contacts."""
-
     def __init__(self):
         """Initializes a new instance of the ContactList class."""
 
         super().__init__()
-        self.__initialize_widgets()      
+        self.__initialize_widgets()    
+
+        # Connect button signals to their respective slots
+        self.add_button.clicked.connect(self.__on_add_contact)
+        self.remove_button.clicked.connect(self.__on_remove_contact)
 
     def __initialize_widgets(self):
         """Initializes the widgets on this Window.
@@ -48,3 +52,14 @@ class ContactList(QMainWindow):
         container = QWidget()
         container.setLayout(layout)
         self.setCentralWidget(container)
+
+# Event Handlers
+    @Slot()
+    def __on_add_contact(self):
+        """Handles the Add Contact button click event."""
+        pass
+
+    @Slot()
+    def __on_remove_contact(self):
+        """Handles the Remove Contact button click event."""
+        pass
