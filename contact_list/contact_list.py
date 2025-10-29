@@ -57,8 +57,33 @@ class ContactList(QMainWindow):
     @Slot()
     def __on_add_contact(self):
         """Handles the Add Contact button click event."""
-        pass
+        # Extract text from input fields
+        contact_name = self.contact_name_input.text().strip()
+        phone_number = self.phone_input.text().strip()
 
+        # Check if both fields have data
+        if len(contact_name) > 0 and len(phone_number) > 0:
+            
+            # Get the current number of rows
+            row_position = self.contact_table.rowCount()
+
+            # Insert a new row 
+            self.contact_table.insertRow(row_position)
+
+            # Create table items for name and phone
+            name_item = QTableWidgetItem(contact_name)
+            phone_item = QTableWidgetItem(phone_number)
+
+            # Add items to the table
+            self.contact_table.setItem(row_position, 0, name_item)
+            self.contact_table.setItem(row_position, 1, phone_item)
+
+            # Update
+            self.status_label.setText(f"Added contact: {contact_name}")
+        else:
+            # Show warning with a message
+            self.status_label.setText("Please enter a contact name and phone number.")
+    
     @Slot()
     def __on_remove_contact(self):
         """Handles the Remove Contact button click event."""
