@@ -13,4 +13,10 @@ Sania Parvej
 
 ## Additional Information
 
-[ Use this space to include additional information that may help in your learning. ]
+The following Module 4 components were implemented in this activity:
+
+- Event Handling- I created methods that handle specific user interactions and update the interface dynamically.  
+- Signals- I utilized signals to emit events when certain actions occurred, allowing for a decoupled architecture.
+- Slots- I defined slots to handle the emitted signals and perform the necessary actions in response.
+- PySide6- I used the PySide6 library to create the GUI components and manage the application window.
+
