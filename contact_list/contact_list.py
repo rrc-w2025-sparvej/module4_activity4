@@ -109,3 +109,5 @@ class ContactList(QMainWindow):
         else:
             # If no selection is made of the row, a messag will appear
             self.status_label.setText("Please select a row to be removed.")
+
+            
